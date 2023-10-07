@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router";
+import { useParams } from "react-router";
 
 function PowerEditForm() {
   const [{ data: power, errors, status }, setPower] = useState({
@@ -12,7 +12,7 @@ function PowerEditForm() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`/powers/${id}`).then((r) => {
+    fetch(`/api//powers/${id}`).then((r) => {
       if (r.ok) {
         r.json().then((power) => {
           setPower({ data: power, errors: [], status: "resolved" });
